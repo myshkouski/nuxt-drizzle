@@ -12,14 +12,14 @@
     "nuxt-module",
     "orm"
   ],
-  "homepage": "https://github.com/Myshkouski/nuxt-drizzle#readme",
+  "homepage": "https://github.com/myshkouski/nuxt-drizzle#readme",
   "bugs": {
-    "url": "https://github.com/Myshkouski/nuxt-drizzle/issues"
+    "url": "https://github.com/myshkouski/nuxt-drizzle/issues"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Myshkouski/nuxt-drizzle.git"
+    "url": "git+https://github.com/myshkouski/nuxt-drizzle.git"
   },
   "workspaces": [
     "playground"
