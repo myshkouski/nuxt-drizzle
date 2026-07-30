@@ -58,7 +58,7 @@
   "dependencies": {
     "@nuxt/kit": "^4.4.8",
     "lefthook": "^2.1.10",
-    "nitro-drizzle": "0.3.0-beta.2",
+    "nitro-drizzle": "0.3.0-beta.4",
     "pathe": "^2.0.3"
   },
   "devDependencies": {
