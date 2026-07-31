@@ -69,6 +69,20 @@ export default defineNuxtModule<ModuleOptions>({
       declarations(declarations): MaybePromise<void> {
         const typesDir = join(nuxt.options.buildDir, "types");
 
+        Object.entries(declarations.shared).forEach(([filename, contents]) => {
+          addTypeTemplate(
+            {
+              // @ts-expect-error addTypeTemplate expects a string filename, but join returns a resolved path
+              filename: join(typesDir, filename),
+              getContents: async () => ("string" === typeof contents ? contents : await contents()),
+            },
+            {
+              node: true,
+              nitro: true,
+            },
+          );
+        });
+
         Object.entries(declarations.module).forEach(([filename, contents]) => {
           addTypeTemplate(
             {
