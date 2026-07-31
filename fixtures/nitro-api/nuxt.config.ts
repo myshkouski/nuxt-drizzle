@@ -9,13 +9,11 @@ export default defineNuxtConfig({
     },
     datasources: {
       content: {
-        connector: "sqlite",
+        drivers: ["sqlite"],
       },
       users: {
-        connector: "pglite",
+        drivers: ["pglite"],
       },
-      // @ts-expect-error unknown datasource type is intentionally omitted to test validation
-      unknownDatasource: {},
     },
   },
 });
