@@ -6,8 +6,8 @@
     "dev:prepare": "nuxt prepare"
   },
   "dependencies": {
-    "@electric-sql/pglite": "catalogs:drivers:",
-    "better-sqlite3": "catalogs:drivers:",
+    "@electric-sql/pglite": "catalog:drivers",
+    "better-sqlite3": "catalog:drivers",
     "consola": "^3.4.2",
     "drizzle-orm": "^0.45.2",
     "nuxt": "^4.4.2",
