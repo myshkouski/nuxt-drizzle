@@ -56,7 +56,6 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.4.8",
     "lefthook": "^2.1.10",
     "nitro-drizzle": "0.3.0-beta.4",
     "pathe": "^2.0.3"
@@ -64,12 +63,13 @@
   "devDependencies": {
     "@nuxt/devtools": "^3.2.4",
     "@nuxt/eslint-config": "^1.16.0",
+    "@nuxt/kit": "catalog:",
     "@nuxt/module-builder": "^1.0.2",
-    "@nuxt/schema": "^4.4.8",
+    "@nuxt/schema": "catalog:",
     "@nuxt/test-utils": "^4.0.3",
     "@types/node": "latest",
     "changelogen": "^0.6.2",
-    "nuxt": "^4.4.8",
+    "nuxt": "catalog:",
     "oxfmt": "^0.58.0",
     "oxlint": "^1.73.0",
     "typescript": "^6.0.3",
