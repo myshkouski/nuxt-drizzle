@@ -3,7 +3,7 @@ import path from "node:path";
 export default defineNuxtConfig({
   modules: ["nuxt-drizzle"],
   drizzle: {
-    baseDir: path.resolve(import.meta.dirname, "./server/drizzle"),
+    baseDir: path.resolve(import.meta.dirname, "./server/db/drizzle"),
     migrations: {
       migrateOnInit: true,
     },
