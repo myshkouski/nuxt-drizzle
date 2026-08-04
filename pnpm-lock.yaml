@@ -94,6 +94,9 @@ importers:
       drizzle-orm:
         specifier: ^0.45.2
         version: 0.45.2(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(mysql2@3.22.5(@types/node@26.1.2))(postgres@3.4.9)
+      nitro-drizzle-sample-data:
+        specifier: github:myshkouski/nitro-drizzle#7d318b81cd524ebf98c262fedc0d2407a550064a&path:fixtures/sample-data
+        version: https://codeload.github.com/myshkouski/nitro-drizzle/tar.gz/7d318b81cd524ebf98c262fedc0d2407a550064a#path:fixtures/sample-data
       nuxt:
         specifier: ^4.4.2
         version: 4.5.1(fa4a4f01b0686ccc41ae2d9772c3bcb9)
@@ -5233,6 +5236,10 @@ packages:
 
   nf3@0.3.21:
     resolution: {integrity: sha512-DJ1Ss/jfUdqETSbouezgAyh6NmD3r2NnpX7Vhwz7nPTc8TvqFddJ/tMgYDwhWU4H/vTOUXDYG3sWsB9vGBX/HA==}
+
+  nitro-drizzle-sample-data@https://codeload.github.com/myshkouski/nitro-drizzle/tar.gz/7d318b81cd524ebf98c262fedc0d2407a550064a#path:fixtures/sample-data:
+    resolution: {gitHosted: true, integrity: sha512-gPBDDKvQDTjK82Px35SbXvfi1l7roRTbvwUD6Fxy3OU49pEmC8hhvZJbrsH4SsoEg355gZo7FjUrpIE2unjJ7w==, tarball: https://codeload.github.com/myshkouski/nitro-drizzle/tar.gz/7d318b81cd524ebf98c262fedc0d2407a550064a}
+    version: 0.0.0
 
   nitro-drizzle@0.3.0-beta.4:
     resolution: {integrity: sha512-J6afNiA7v09hD2gWIgxvo1OPSHgTvlCXfRm8Tz2u57G4TwEV/gxeQx3epOvZf378cDN7/0/fBAb3PHMlJMDmAA==}
@@ -13369,6 +13376,8 @@ snapshots:
   natural-compare@1.4.0: {}
 
   nf3@0.3.21: {}
+
+  nitro-drizzle-sample-data@https://codeload.github.com/myshkouski/nitro-drizzle/tar.gz/7d318b81cd524ebf98c262fedc0d2407a550064a#path:fixtures/sample-data: {}
 
   nitro-drizzle@0.3.0-beta.4(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(better-sqlite3@12.11.1)(chokidar@5.0.0)(dotenv@17.4.2)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@electric-sql/pglite@0.5.4)(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(mysql2@3.22.5(@types/node@26.1.1))(postgres@3.4.9))(giget@3.3.0)(h3@2.0.1-rc.26(crossws@0.4.9(srvx@0.12.5)))(ioredis@5.11.1)(lru-cache@11.5.1)(magicast@0.5.3)(mysql2@3.22.5(@types/node@26.1.1))(oxc-parser@0.140.0)(postgres@3.4.9)(rolldown@1.2.1)(srvx@0.12.5)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0)):
     dependencies:

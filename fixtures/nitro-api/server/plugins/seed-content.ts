@@ -1,9 +1,13 @@
+import { defineNitroPlugin } from "nitropack/runtime";
 import { consola } from "consola";
 import { colorize } from "consola/utils";
-import { useDatasource } from "nitro-drizzle/runtime";
+import { useDialect } from "nitro-drizzle/runtime";
 import { usePrimaryColumns } from "nitro-drizzle/utils";
+import { onConflictDoNothing as sqliteOnConflictDoNothing } from "nitro-drizzle/dialects/sqlite";
+import { onConflictDoNothing as pgOnConflictDoNothing } from "nitro-drizzle/dialects/postgresql";
+import { onConflictDoNothing as mysqlOnConflictDoNothing } from "nitro-drizzle/dialects/mysql";
 
-import { onConflictDoNothing } from "#nitro-drizzle/dialects/content";
+import * as sampleData from "nitro-drizzle-sample-data/content";
 
 export default defineNitroPlugin((nitro) => {
   nitro.hooks.hook("drizzle:migrate:after", async (name) => {
@@ -15,56 +19,39 @@ export default defineNitroPlugin((nitro) => {
 });
 
 async function seedContent() {
-  const { database, schema } = await useDatasource("content");
+  await useDialect("content", {
+    async postgresql({ database, schema }) {
+      await pgOnConflictDoNothing(
+        usePrimaryColumns(schema.posts),
+        database.insert(schema.posts).values(sampleData.posts),
+      );
 
-  await onConflictDoNothing(
-    usePrimaryColumns(schema.posts),
-    database.insert(schema.posts).values([
-      {
-        id: 1,
-        title: "Nuxt Icon v1",
-        description: "Discover Nuxt Icon v1!",
-        image: "https://nuxt.com/assets/blog/nuxt-icon/cover.png",
-        date: new Date("2024-11-25"),
-        authors: [1, 2],
-      },
-      {
-        id: 2,
-        title: "Nuxt 3.14",
-        description: "Nuxt 3.14 is out!",
-        image: "https://nuxt.com/assets/blog/v3.14.png",
-        date: new Date("2024-11-04"),
-        authors: [1],
-      },
-      {
-        id: 3,
-        title: "Nuxt 3.13",
-        description: "Nuxt 3.13 is out!",
-        image: "https://nuxt.com/assets/blog/v3.13.png",
-        date: new Date("2024-08-22"),
-        authors: [2],
-      },
-    ]),
-  );
+      await pgOnConflictDoNothing(
+        usePrimaryColumns(schema.comments),
+        database.insert(schema.comments).values(sampleData.comments),
+      );
+    },
+    async mysql({ database, schema }) {
+      await mysqlOnConflictDoNothing(
+        usePrimaryColumns(schema.posts),
+        database.insert(schema.posts).values(sampleData.posts),
+      );
 
-  // Seed comments
-  await onConflictDoNothing(
-    usePrimaryColumns(schema.comments),
-    database.insert(schema.comments).values([
-      {
-        id: 1,
-        postId: 1,
-        authorId: 2,
-        content: "Great first post!",
-        createdAt: new Date("2024-11-25"),
-      },
-      {
-        id: 2,
-        postId: 1,
-        authorId: 1,
-        content: "Thanks for the comment!",
-        createdAt: new Date("2024-11-25"),
-      },
-    ]),
-  );
+      await mysqlOnConflictDoNothing(
+        usePrimaryColumns(schema.comments),
+        database.insert(schema.comments).values(sampleData.comments),
+      );
+    },
+    async sqlite({ database, schema }) {
+      await sqliteOnConflictDoNothing(
+        usePrimaryColumns(schema.posts),
+        database.insert(schema.posts).values(sampleData.posts),
+      );
+
+      await sqliteOnConflictDoNothing(
+        usePrimaryColumns(schema.comments),
+        database.insert(schema.comments).values(sampleData.comments),
+      );
+    },
+  });
 }

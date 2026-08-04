@@ -16,4 +16,29 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    drizzle: {
+      content: {
+        driver: "",
+        sqlite: {
+          url: ":memory:",
+        },
+        d1: {
+          binding: "content",
+        },
+      },
+      users: {
+        driver: "sqlite",
+        postgresql: {
+          url: "",
+        },
+        pglite: {
+          dataDir: "memory://",
+        },
+        d1: {
+          binding: "users",
+        },
+      },
+    },
+  },
 });

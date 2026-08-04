@@ -10,6 +10,7 @@
     "better-sqlite3": "catalog:drivers",
     "consola": "^3.4.2",
     "drizzle-orm": "^0.45.2",
+    "nitro-drizzle-sample-data": "github:myshkouski/nitro-drizzle#7d318b81cd524ebf98c262fedc0d2407a550064a&path:fixtures/sample-data",
     "nuxt": "^4.4.2",
     "nuxt-drizzle": "workspace:^"
   }
