@@ -3,22 +3,24 @@ export default defineNuxtConfig({
   runtimeConfig: {
     drizzle: {
       content: {
-        url: ":memory:",
+        driver: "sqlite",
+        pglite: {
+          dataDir: "memory://",
+        },
+        sqlite: {
+          url: ":memory:",
+        },
       },
       users: {
-        database: "users",
+        driver: "pglite",
+        pglite: {
+          dataDir: "memory://",
+        },
+        sqlite: {
+          url: ":memory:",
+        },
       },
     },
   },
   compatibilityDate: "latest",
-  drizzle: {
-    datasource: {
-      content: {
-        connector: "sqlite",
-      },
-      users: {
-        connector: "pglite",
-      },
-    },
-  },
 });
