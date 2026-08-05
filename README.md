@@ -25,6 +25,21 @@ A [Nuxt](https://nuxt.com) module that brings [Drizzle ORM](https://orm.drizzle.
 - 🧠 Typed `useDatasource()` access from server routes and Nitro plugins
 - 🛠️ Zero-config type templates and virtual modules generated on the fly
 
+## Project Structure
+
+```
+.
+├── fixtures/nuxt-app/    # Fixture Nuxt app used as the base for the playground and e2e tests
+├── playground/           # Runnable Nuxt app for local development and trying the module
+├── test/e2e/             # End-to-end tests for datasource functionality
+├── src/                  # Module source
+└── dist/                 # Built module output
+```
+
+- **`fixtures/nuxt-app/`** — A fixture Nuxt app that demonstrates the module with two datasources (`content` using sqlite, `users` using pglite). It extends `nitro-drizzle-blog-api-legacy-layer` for API routes and uses `@nuxt/ui` for the frontend. Both the playground and e2e tests extend this fixture.
+- **`playground/`** — A runnable Nuxt app that extends the fixtures app with `install: true`. It overrides datasource drivers to use in-memory drivers (`:memory:` / `memory://`) for local development. Run `pnpm run dev` from the repo root to start it.
+- **`test/e2e/`** — End-to-end tests that extend the fixtures app and verify datasource functionality via `$fetch`.
+
 ## Quick Setup
 
 Install the module to your Nuxt application with one command:
@@ -33,22 +48,24 @@ Install the module to your Nuxt application with one command:
 npx nuxt module add nuxt-drizzle
 ```
 
-Then register it and configure your datasources in `nuxt.config.ts`:
+Then register it in `nuxt.config.ts` and configure your datasource drivers via `runtimeConfig`:
 
 ```ts
 export default defineNuxtConfig({
   modules: ["nuxt-drizzle"],
-  drizzle: {
-    baseDir: "./server/drizzle",
-    migrations: {
-      migrateOnInit: true,
-    },
-    datasources: {
+  runtimeConfig: {
+    drizzle: {
       users: {
-        connector: "pglite",
+        driver: "pglite",
+        pglite: {
+          dataDir: "./data/users",
+        },
       },
       content: {
-        connector: "sqlite",
+        driver: "sqlite",
+        sqlite: {
+          url: "./data/content.db",
+        },
       },
     },
   },
@@ -58,15 +75,15 @@ export default defineNuxtConfig({
 Define a datasource with `defineConfig` from `nitro-drizzle/config`:
 
 ```ts
-// server/drizzle/users/drizzle-sqlite.config.ts
+// server/drizzle/users/drizzle-pglite.config.ts
 import { defineConfig } from "nitro-drizzle/config";
 
 export default defineConfig(
   {
     strict: true,
-    dialect: "sqlite",
-    schema: ["./sqlite/schema/authors.ts"],
-    out: "./sqlite/migrations",
+    dialect: "postgresql",
+    schema: ["./pg/schema/users.ts"],
+    out: "./pg/migrations",
   },
   import.meta.url,
 );
@@ -82,15 +99,44 @@ export default defineEventHandler(async (event) => {
   await event.context.drizzle.waitReady();
 
   const { database, schema } = await useDatasource("users");
-  const authors = await database.select().from(schema.authors).limit(10);
+  const users = await database.select().from(schema.users).limit(10);
 
-  return { authors };
+  return { users };
 });
 ```
 
 That's it! You can now use `nuxt-drizzle` in your Nuxt app ✨
 
 > Under the hood, all database wiring, migrations, and runtime helpers come from [`nitro-drizzle`](https://www.npmjs.com/package/nitro-drizzle). See its docs for the full configuration reference (`nitro-drizzle/config`, `nitro-drizzle/runtime`, `nitro-drizzle/utils`).
+
+## Local Development
+
+Run the playground app to try the module locally:
+
+```bash
+# Install dependencies
+pnpm install
+
+# Generate type stubs
+pnpm run dev:prepare
+
+# Start the playground dev server
+pnpm run dev
+```
+
+The playground at `playground/` extends `fixtures/nuxt-app` and uses in-memory drivers for quick iteration.
+
+### Fixtures
+
+The fixture app at `fixtures/nuxt-app/` provides a full Nuxt app with two datasources and UI pages. It is used as the base for both the playground and e2e tests.
+
+### End-to-End Tests
+
+Run the e2e tests to verify datasource functionality:
+
+```bash
+pnpm run test
+```
 
 ## Contribution
 
@@ -99,26 +145,35 @@ That's it! You can now use `nuxt-drizzle` in your Nuxt app ✨
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Generate type stubs
-npm run dev:prepare
+pnpm run dev:prepare
 
 # Develop with the playground
-npm run dev
+pnpm run dev
 
 # Build the playground
-npm run dev:build
-
-# Run ESLint
-npm run lint
+pnpm run dev:build
 
 # Run Vitest
-npm run test
-npm run test:watch
+pnpm run test
+pnpm run test:watch
+
+# Run type checks
+pnpm run test:types
+
+# Run ESLint
+pnpm run lint
+
+# Format code
+pnpm run fmt
+
+# Check formatting
+pnpm run fmt:check
 
 # Release new version
-npm run release
+pnpm run release
 ```
 
 </details>
