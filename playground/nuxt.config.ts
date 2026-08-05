@@ -1,5 +1,25 @@
 export default defineNuxtConfig({
-  extends: ["../fixtures/nuxt-app"],
+  compatibilityDate: "2025-07-15",
+  extends: [["../fixtures/nuxt-app", { install: true }]],
+  runtimeConfig: {
+    drizzle: {
+      content: {
+        pglite: {
+          dataDir: "memory://",
+        },
+        sqlite: {
+          url: ":memory:",
+        },
+      },
+      users: {
+        pglite: {
+          dataDir: "memory://",
+        },
+        sqlite: {
+          url: ":memory:",
+        },
+      },
+    },
+  },
   devtools: { enabled: true },
-  compatibilityDate: "latest",
 });

@@ -2,7 +2,14 @@
 <template>
   <UContainer class="space-y-8 my-8">
     <h1 class="text-2xl font-bold px-0.5">Blog Posts</h1>
-    <UBlogPosts :posts="posts" />
+    <UBlogPosts :posts="posts">
+      <template #footer="{ post }">
+        <div class="flex gap-2 items-center px-6 mt-0 mb-6 text-neutral">
+          <UIcon class="size-5" name="i-lucide-message-circle" />
+          <span>{{ post.comments?.length ?? 0 }}</span>
+        </div>
+      </template>
+    </UBlogPosts>
   </UContainer>
 </template>
 

@@ -3,12 +3,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "nuxt dev",
     "dev:prepare": "nuxt prepare"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.102",
-    "@nuxt/ui": "^4.6.1",
-    "nuxt": "catalog:",
-    "tailwindcss": "^4.2.2"
+    "@iconify-json/lucide": "^1.2.121",
+    "@nuxt/ui": "^4.10.0",
+    "nitro-drizzle-blog-api-legacy-layer": "github:myshkouski/nitro-drizzle#6a1b5c89aebd5fc53bce321b6db94af8f5194ed8&path:fixtures/blog-api-legacy/layers/api",
+    "nitro-drizzle-sample-data": "github:myshkouski/nitro-drizzle#6a1b5c89aebd5fc53bce321b6db94af8f5194ed8&path:fixtures/sample-data",
+    "nitropack": "^2.13.4",
+    "nuxt": "^4.5.2",
+    "nuxt-drizzle": "workspace:^",
+    "tailwindcss": "^4.3.3"
   }
 }

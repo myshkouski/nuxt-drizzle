@@ -57,24 +57,24 @@
   },
   "dependencies": {
     "lefthook": "^2.1.10",
-    "nitro-drizzle": "0.3.0-beta.4",
+    "nitro-drizzle": "catalog:",
     "pathe": "^2.0.3"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^3.2.4",
+    "@nuxt/devtools": "^3.4.1",
     "@nuxt/eslint-config": "^1.16.0",
     "@nuxt/kit": "catalog:",
-    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/module-builder": "^1.0.3",
     "@nuxt/schema": "catalog:",
-    "@nuxt/test-utils": "^4.0.3",
+    "@nuxt/test-utils": "^4.1.0",
     "@types/node": "latest",
     "changelogen": "^0.6.2",
     "nuxt": "catalog:",
     "oxfmt": "^0.58.0",
-    "oxlint": "^1.73.0",
+    "oxlint": "^1.77.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10",
-    "vue-tsc": "^3.3.7"
+    "vue-tsc": "^3.3.9"
   },
   "packageManager": "pnpm@10.34.5+sha512.a4ee05f2f73658255bd6a89859c065a45c28a57daefae2c893a168ee2b73168c37b91e83e57ea67654ad03f03031746430e8bce38e362e042605fb8abc80192e"
 }

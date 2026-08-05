@@ -13,9 +13,10 @@ allowBuilds:
 
 catalogs:
   default:
-    "@nuxt/schema": ^4.5.1
-    "@nuxt/kit": ^4.5.1
-    nuxt: ^4.5.1
+    "@nuxt/kit": ^4.5.2
+    "@nuxt/schema": ^4.5.2
+    nitro-drizzle: 0.3.0-beta.4
+    nuxt: ^4.5.2
   drivers:
     "@electric-sql/pglite": ^0.5.1
     better-sqlite3: ^12.10.0
