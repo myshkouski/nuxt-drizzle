@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     drizzle: {
       content: {
+        driver: "pglite",
         pglite: {
           dataDir: "memory://",
         },
@@ -12,6 +13,7 @@ export default defineNuxtConfig({
         },
       },
       users: {
+        driver: "sqlite",
         pglite: {
           dataDir: "memory://",
         },
