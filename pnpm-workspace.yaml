@@ -30,3 +30,4 @@ minimumReleaseAgeExclude:
   - "@nuxt/vite-builder@4.5.2"
   - nuxt@4.5.2
   - nitro-drizzle@0.3.0-beta.5
+  - esbuild@0.24.3 || 0.28.1
