@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-  extends: [["../fixtures/nuxt-app", { install: true }]],
+  extends: ["../fixtures/nuxt-app"],
   runtimeConfig: {
     drizzle: {
       content: {
