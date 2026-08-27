@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.121",
+    "@nitro-drizzle/fixtures-blog-api-legacy-layer": "github:myshkouski/nitro-drizzle#1549790aee69b83786cd3975896d7072cf89b580&path:fixtures/blog-api-legacy/layers/api",
+    "@nitro-drizzle/fixtures-sample-data": "github:myshkouski/nitro-drizzle#1549790aee69b83786cd3975896d7072cf89b580&path:fixtures/sample-data",
     "@nuxt/ui": "^4.10.0",
-    "nitro-drizzle-blog-api-legacy-layer": "github:myshkouski/nitro-drizzle#6a1b5c89aebd5fc53bce321b6db94af8f5194ed8&path:fixtures/blog-api-legacy/layers/api",
-    "nitro-drizzle-sample-data": "github:myshkouski/nitro-drizzle#6a1b5c89aebd5fc53bce321b6db94af8f5194ed8&path:fixtures/sample-data",
     "nitropack": "^2.13.4",
     "nuxt": "^4.5.2",
     "nuxt-drizzle": "workspace:^",
