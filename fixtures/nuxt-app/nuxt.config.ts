@@ -1,7 +1,7 @@
 import { defu } from "defu";
 
-import { serverDir as baseLayerServerDir } from "nitro-drizzle-blog-api-legacy-layer";
-import { name as BASE_LAYER_ID } from "nitro-drizzle-blog-api-legacy-layer/package.json";
+import { serverDir as baseLayerServerDir } from "@nitro-drizzle/fixtures-blog-api-legacy-layer";
+import { name as BASE_LAYER_ID } from "@nitro-drizzle/fixtures-blog-api-legacy-layer/package.json";
 import { fileURLToPath } from "node:url";
 
 // The config extends fixture from `nitro-drizzle` repository.

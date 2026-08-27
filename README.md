@@ -36,7 +36,7 @@ A [Nuxt](https://nuxt.com) module that brings [Drizzle ORM](https://orm.drizzle.
 └── dist/                 # Built module output
 ```
 
-- **`fixtures/nuxt-app/`** — A fixture Nuxt app that demonstrates the module with two datasources (`content` using sqlite, `users` using pglite). It extends `nitro-drizzle-blog-api-legacy-layer` for API routes and uses `@nuxt/ui` for the frontend. Both the playground and e2e tests extend this fixture.
+- **`fixtures/nuxt-app/`** — A fixture Nuxt app that demonstrates the module with two datasources (`content` using sqlite, `users` using pglite). It extends `@nitro-drizzle/fixtures-blog-api-legacy-layer` for API routes and uses `@nuxt/ui` for the frontend. Both the playground and e2e tests extend this fixture.
 - **`playground/`** — A runnable Nuxt app that extends the fixtures app with `install: true`. It overrides datasource drivers to use in-memory drivers (`:memory:` / `memory://`) for local development. Run `pnpm run dev` from the repo root to start it.
 - **`test/e2e/`** — End-to-end tests that extend the fixtures app and verify datasource functionality via `$fetch`.
 
