@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/myshkouski/nuxt-drizzle/compare/v0.2.0-beta.2...v0.2.0)
+
+### 💅 Refactors
+
+- **module:** Use serverDir instead of srcDir for base directory resolution ([eca71e8](https://github.com/myshkouski/nuxt-drizzle/commit/eca71e8))
+
+### 📖 Documentation
+
+- Add Try it section with Stackblitz link and playground reference ([e609cd6](https://github.com/myshkouski/nuxt-drizzle/commit/e609cd6))
+
+### ❤️ Contributors
+
+- Alexei Myshkouski ([@myshkouski](https://github.com/myshkouski))
+
 ## v0.2.0-beta.2
 
 [compare changes](https://github.com/myshkouski/nuxt-drizzle/compare/v0.2.0-beta.1...v0.2.0-beta.2)
