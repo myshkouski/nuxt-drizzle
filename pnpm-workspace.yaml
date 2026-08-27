@@ -15,7 +15,7 @@ catalogs:
   default:
     "@nuxt/kit": ^4.5.2
     "@nuxt/schema": ^4.5.2
-    nitro-drizzle: 0.3.0-beta.6
+    nitro-drizzle: ^0.3.0
     nuxt: ^4.5.2
   drivers:
     "@electric-sql/pglite": ^0.5.1
@@ -29,5 +29,5 @@ minimumReleaseAgeExclude:
   - "@nuxt/schema@4.5.2"
   - "@nuxt/vite-builder@4.5.2"
   - nuxt@4.5.2
-  - nitro-drizzle@0.3.0-beta.6
+  - nitro-drizzle@0.3.0-beta.6 || 0.3.0
   - esbuild@0.24.3 || 0.28.1
