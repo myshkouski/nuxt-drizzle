@@ -30,7 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url);
 
     const baseDir = resolve(
-      nuxt.options.srcDir,
+      nuxt.options.serverDir,
       resolveAlias(moduleConfig.baseDir, nuxt.options.alias),
     );
 
