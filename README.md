@@ -25,6 +25,12 @@ A [Nuxt](https://nuxt.com) module that brings [Drizzle ORM](https://orm.drizzle.
 - 🧠 Typed `useDatasource()` access from server routes and Nitro plugins
 - 🛠️ Zero-config type templates and virtual modules generated on the fly
 
+## Try it
+
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/myshkouski/nuxt-drizzle-playground)
+
+Check out the [`nuxt-drizzle-playground`](https://github.com/myshkouski/nuxt-drizzle-playground) for a runnable example of the module in action.
+
 ## Project Structure
 
 ```
