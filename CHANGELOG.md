@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.0-beta.2
+
+[compare changes](https://github.com/myshkouski/nuxt-drizzle/compare/v0.2.0-beta.1...v0.2.0-beta.2)
+
+### 📖 Documentation
+
+- Update README and nuxt config to reference renamed fixture layer package ([d80df43](https://github.com/myshkouski/nuxt-drizzle/commit/d80df43))
+
+### 🏡 Chore
+
+- Rename fixture packages and bump nitro-drizzle to beta.6 ([3e077a1](https://github.com/myshkouski/nuxt-drizzle/commit/3e077a1))
+
+### ❤️ Contributors
+
+- Alexei Myshkouski ([@myshkouski](https://github.com/myshkouski))
+
 ## v0.2.0-beta.1
 
 [compare changes](https://github.com/myshkouski/nuxt-drizzle/compare/v0.1.3...v0.2.0-beta.1)
